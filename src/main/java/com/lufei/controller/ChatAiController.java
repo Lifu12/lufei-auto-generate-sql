@@ -68,7 +68,7 @@ public class ChatAiController {
     }
 
     /**
-     * 提示词适配构建器
+     * 提示词适配
      */
     public String buildPrompt(ChatAiDTO chatAiDTO) {
         for (PromptFactory promptFactory : promptFactoryList) {
