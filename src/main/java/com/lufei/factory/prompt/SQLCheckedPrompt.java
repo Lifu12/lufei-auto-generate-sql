@@ -1,7 +1,8 @@
-package com.lufei.builder;
+package com.lufei.factory.prompt;
 
 import com.lufei.dto.ChatAiDTO;
 import com.lufei.enums.PromptType;
+import com.lufei.factory.PromptFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author kun.li
  */
 @Component
-public class SQLCheckedPromptBuilder implements PromptBuilder {
+public class SQLCheckedPrompt implements PromptFactory {
     @Override
     public boolean supportPromptType(String type) {
         return "SQL_CHECKED".equals(type);

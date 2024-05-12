@@ -1,10 +1,11 @@
-package com.lufei.factory;
+package com.lufei.factory.model;
 
 import com.azure.ai.openai.models.ChatCompletionsOptions;
 import com.azure.ai.openai.models.ChatRequestMessage;
 import com.azure.ai.openai.models.ChatRequestUserMessage;
 import com.lufei.enums.ModelType;
 import com.lufei.enums.OpenAIVersion;
+import com.lufei.factory.ModelFactory;
 import com.lufei.util.AzureAiRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

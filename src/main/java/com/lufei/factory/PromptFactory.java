@@ -1,4 +1,4 @@
-package com.lufei.builder;
+package com.lufei.factory;
 
 import com.lufei.dto.ChatAiDTO;
 
@@ -6,7 +6,7 @@ import com.lufei.dto.ChatAiDTO;
  * 提示词构建器
  * @author kun.li
  */
-public interface PromptBuilder {
+public interface PromptFactory {
     /**
      * 支持的提示词类型
      */

@@ -1,11 +1,12 @@
 package com.lufei.controller;
 
-import com.lufei.builder.PromptBuilder;
+import com.lufei.factory.PromptFactory;
 import com.lufei.dto.ChatAiDTO;
 import com.lufei.enums.ModelType;
 import com.lufei.enums.OpenAIVersion;
-import com.lufei.factory.AzureModel;
+import com.lufei.factory.model.AzureModel;
 import com.lufei.factory.ModelFactory;
+import com.lufei.util.ResponseResult;
 import com.lufei.util.SpringApplicationUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +29,19 @@ public class ChatAiController {
 
 
     @Autowired
-    private List<PromptBuilder> promptBuilderList;
+    private List<PromptFactory> promptFactoryList;
 
     @Autowired
     private List<ModelFactory> modelFactoryList;
 
-
+    /**
+     * ai统一访问入口非流
+     */
     @PostMapping("ai")
-    public String chatAi(@RequestBody ChatAiDTO chatAiDTO) {
+    public ResponseResult chatAi(@RequestBody ChatAiDTO chatAiDTO) {
         String prompt = buildPrompt(chatAiDTO);
         log.info("prompt:{}", prompt);
-        return getAnswer(chatAiDTO, prompt);
+        return ResponseResult.success(getAnswer(chatAiDTO, prompt));
     }
 
     public String getAnswer(ChatAiDTO chatAiDTO, String prompt) {
@@ -68,9 +71,9 @@ public class ChatAiController {
      * 提示词适配构建器
      */
     public String buildPrompt(ChatAiDTO chatAiDTO) {
-        for (PromptBuilder promptBuilder : promptBuilderList) {
-            if (promptBuilder.supportPromptType(chatAiDTO.getPromptType())) {
-                return promptBuilder.buildPromptMessage(chatAiDTO);
+        for (PromptFactory promptFactory : promptFactoryList) {
+            if (promptFactory.supportPromptType(chatAiDTO.getPromptType())) {
+                return promptFactory.buildPromptMessage(chatAiDTO);
             }
         }
         return "暂无法回答";
