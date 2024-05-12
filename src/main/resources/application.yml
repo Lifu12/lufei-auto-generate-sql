@@ -1,0 +1,13 @@
+chat:
+  ai:
+    azureAi:
+      open-key: xxx
+      endpoint: https://evtech.openai.azure.com
+      name-space: xxx
+      model: gpt3.5
+db:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai
+  username: root
+  password: root
+  db-type: mysql
