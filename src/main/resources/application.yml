@@ -1,9 +1,9 @@
 chat:
   ai:
     azureAi:
-      open-key: xxx
+      open-key: ${OPEN_KEY}
       endpoint: https://evtech.openai.azure.com
-      name-space: xxx
+      name-space: ${NAME_SPACE}
       model: gpt3.5
 db:
   driver-class-name: com.mysql.cj.jdbc.Driver

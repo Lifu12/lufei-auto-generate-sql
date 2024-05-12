@@ -34,12 +34,7 @@
 - 可以自由切换模型【不局限于OpenAi】
 
 ## 设计架构
-
-![image-20240512132345004](Ai自动生成Sql.assets/image-20240512132345004.png)
-
-
-
-
+![img_1.png](Ai自动生成Sql.assets/img_1.png)
 
 ### 快速启动
 
@@ -71,3 +66,7 @@ db:
 
 ![image-20240512141902235](Ai自动生成Sql.assets/image-20240512141902235.png)
 
+### 帮助
+后续如果有不懂的地方,请关注公众号`编程思维阁` 进行交流
+或者添加作者微信进交流群<br>
+<img src="Ai自动生成Sql.assets/img.png"  height="300px" title="微信二维码" width="280px">
