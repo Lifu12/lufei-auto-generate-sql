@@ -37,7 +37,7 @@
 ![img_1.png](Ai自动生成Sql.assets/img_1.png)
 
 ### 快速启动
-
+#### 后端
 将项目导入到Idea中后配置自己的模型所需的参数以及要从哪个数据库中生成sql的连接信息
 
 ```yaml
@@ -65,10 +65,24 @@ db:
 ![image-20240512141846563](Ai自动生成Sql.assets/image-20240512141846563.png)
 
 ![image-20240512141902235](Ai自动生成Sql.assets/image-20240512141902235.png)
+#### 前端启动
+```markdown
+ git clonegit@github.com:Lifu12/auto-sql-ui.git
 
+ pnpm i
+ 
+ pnpm dev
+ 
+```
+启动成功后,用户名密码为`admin/12345678` 然后进入到资源管理页面进行测试
+
+
+### 效果图
+![img.png](Ai自动生成Sql.assets/nlp2sql.png)
 ### 帮助
 github地址: https://github.com/Lifu12/lufei-auto-generate-sql <br>
 gitee地址:https://gitee.com/kun_gege/lufei-auto-generate-sql <br>
+前端地址:https://gitee.com/kun_gege/lufei-auto-generate-sql <br>
 后续如果有不懂的地方,请关注公众号`编程思维阁` 进行交流
 或者添加作者微信进交流群<br>
 <img src="Ai自动生成Sql.assets/img.png"  height="300px" title="微信二维码" width="280px">
