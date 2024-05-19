@@ -1,11 +1,11 @@
 package com.lufei.controller;
 
-import com.lufei.factory.PromptFactory;
+import com.lufei.adapter.PromptAdapter;
 import com.lufei.dto.ChatAiDTO;
 import com.lufei.enums.ModelType;
 import com.lufei.enums.OpenAIVersion;
-import com.lufei.factory.model.AzureModel;
-import com.lufei.factory.ModelFactory;
+import com.lufei.adapter.model.AzureModel;
+import com.lufei.adapter.ModelAdapter;
 import com.lufei.util.ResponseResult;
 import com.lufei.util.SpringApplicationUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +26,10 @@ public class ChatAiController {
 
 
     @Autowired
-    private List<PromptFactory> promptFactoryList;
+    private List<PromptAdapter> promptAdapterList;
 
     @Autowired
-    private List<ModelFactory> modelFactoryList;
+    private List<ModelAdapter> modelAdapterList;
 
     /**
      * ai统一访问入口非流
@@ -47,18 +47,18 @@ public class ChatAiController {
         // model 类型
         ModelType modelType = ModelType.getModelType(chatAiDTO.getModel());
         // 得到模型工厂
-        ModelFactory modelFactory = modelFactory(modelType);
+        ModelAdapter modelAdapter = modelFactory(modelType);
         // 得到答案
-        return modelFactory.getAnswer(prompt, modelVersion);
+        return modelAdapter.getAnswer(prompt, modelVersion);
     }
 
     /**
      * 模型适配器
      */
-    public ModelFactory modelFactory(ModelType modelType) {
-        for (ModelFactory modelFactory : modelFactoryList) {
-            if (modelFactory.supportModelType(modelType)) {
-                return modelFactory;
+    public ModelAdapter modelFactory(ModelType modelType) {
+        for (ModelAdapter modelAdapter : modelAdapterList) {
+            if (modelAdapter.supportModelType(modelType)) {
+                return modelAdapter;
             }
         }
         return SpringApplicationUtil.getBean(AzureModel.class);
@@ -68,9 +68,9 @@ public class ChatAiController {
      * 提示词适配
      */
     public String buildPrompt(ChatAiDTO chatAiDTO) {
-        for (PromptFactory promptFactory : promptFactoryList) {
-            if (promptFactory.supportPromptType(chatAiDTO.getPromptType())) {
-                return promptFactory.buildPromptMessage(chatAiDTO);
+        for (PromptAdapter promptAdapter : promptAdapterList) {
+            if (promptAdapter.supportPromptType(chatAiDTO.getPromptType())) {
+                return promptAdapter.buildPromptMessage(chatAiDTO);
             }
         }
         return "暂无法回答";

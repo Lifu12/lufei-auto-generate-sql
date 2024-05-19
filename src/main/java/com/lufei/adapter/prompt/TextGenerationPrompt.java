@@ -1,7 +1,7 @@
-package com.lufei.factory.prompt;
+package com.lufei.adapter.prompt;
 
 import com.lufei.dto.ChatAiDTO;
-import com.lufei.factory.PromptFactory;
+import com.lufei.adapter.PromptAdapter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author kun.li
  */
 @Component
-public class TextGenerationPrompt implements PromptFactory {
+public class TextGenerationPrompt implements PromptAdapter {
     @Override
     public boolean supportPromptType(String type) {
         return "TEXT_GENERATION".equals(type);

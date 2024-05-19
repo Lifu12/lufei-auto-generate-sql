@@ -1,4 +1,4 @@
-package com.lufei.factory;
+package com.lufei.adapter;
 
 import com.lufei.enums.ModelType;
 import com.lufei.enums.OpenAIVersion;
@@ -8,7 +8,7 @@ import com.lufei.enums.OpenAIVersion;
  *
  * @author kun.li
  */
-public interface ModelFactory {
+public interface ModelAdapter {
     /**
      * 支持的类型
      *

@@ -1,4 +1,4 @@
-package com.lufei.factory.prompt;
+package com.lufei.adapter.prompt;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.DbUtil;
@@ -6,7 +6,7 @@ import cn.hutool.db.Entity;
 import cn.hutool.db.ds.simple.SimpleDataSource;
 import com.lufei.dto.ChatAiDTO;
 import com.lufei.enums.PromptType;
-import com.lufei.factory.PromptFactory;
+import com.lufei.adapter.PromptAdapter;
 import com.lufei.properties.DbProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ import java.util.List;
  * @author kun.li
  */
 @Component
-public class Nlp2SqlPrompt implements PromptFactory {
+public class Nlp2SqlPrompt implements PromptAdapter {
 
     @Autowired
     private DbProperties dbProperties;

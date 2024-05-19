@@ -1,11 +1,11 @@
-package com.lufei.factory.model;
+package com.lufei.adapter.model;
 
 import com.azure.ai.openai.models.ChatCompletionsOptions;
 import com.azure.ai.openai.models.ChatRequestMessage;
 import com.azure.ai.openai.models.ChatRequestUserMessage;
 import com.lufei.enums.ModelType;
 import com.lufei.enums.OpenAIVersion;
-import com.lufei.factory.ModelFactory;
+import com.lufei.adapter.ModelAdapter;
 import com.lufei.util.AzureAiRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @author kun.li
  */
 @Component
-public class AzureModel implements ModelFactory {
+public class AzureModel implements ModelAdapter {
 
 
     @Autowired
